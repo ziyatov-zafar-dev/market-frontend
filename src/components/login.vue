@@ -38,6 +38,7 @@
 <script>
 import axios from "axios";
 import {userApiUrls} from "@/constants";
+import AccountService from "@/acoount/account-service";
 
 export default {
   name: `Login`,
@@ -65,6 +66,8 @@ export default {
               sessionStorage.setItem("refresh_token", data.data.refresh_token);
               sessionStorage.setItem("refresh_token_date", data.data.jwt_expire_refresh_token);
             }
+            new AccountService(this.$route).retrieveAccount()
+
           } else alert(data.message);
 
         })
