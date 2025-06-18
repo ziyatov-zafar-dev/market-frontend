@@ -71,7 +71,7 @@ export default {
           } else alert(data.message);
         })
       } catch (err) {
-        console.log(err)
+        console.log('exceptionga tushdi', err)
       }
     }
   }
