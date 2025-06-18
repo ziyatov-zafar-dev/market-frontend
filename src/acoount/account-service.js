@@ -13,7 +13,6 @@ export default class AccountService {
         if (!store.getters.account && !store.getters.logon && token) {
             this.retrieveAccount()
         }
-
     }
 
     retrieveAccount() {
@@ -22,7 +21,7 @@ export default class AccountService {
             .get(`${userApiUrls.userinfo}`)
             .then(response => {
                 const account = response.data.data;
-                console.log('Account',account);
+                console.log('Account', account);
                 if (account) {
                     store.commit("userIdentity", account);
                     if (sessionStorage.getItem("request-url")) {

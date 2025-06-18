@@ -27,7 +27,6 @@ export default new Vuex.Store({
             logon: state => state.logon,
             authenticated: state => state.authenticated,
             account: state => state.userIdentity,
-
         }
     }
 )

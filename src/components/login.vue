@@ -67,7 +67,6 @@ export default {
               sessionStorage.setItem("refresh_token_date", data.data.jwt_expire_refresh_token);
             }
             new AccountService(this.$route).retrieveAccount()
-
           } else alert(data.message);
 
         })
