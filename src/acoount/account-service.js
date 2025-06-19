@@ -16,11 +16,11 @@ export default class AccountService {
     }
 
     retrieveAccount() {
-        this.store.commit("authenticate");
         axios
             .get(`${userApiUrls.userinfo}`)
             .then(response => {
                 const account = response.data.data;
+                this.store.commit("userIdentity", account);
                 console.log('Account', response.data);
                 if (account && response.data.success) {
                     // ✅ Mutation nomini to'g'riladik
@@ -28,6 +28,8 @@ export default class AccountService {
                     if (sessionStorage.getItem("request-url")) {
                         this.router.replace(sessionStorage.getItem("request-url"));
                         sessionStorage.removeItem("request-url");
+                    } else {
+                        console.log("No request-url found");
                     }
                 } else {
                     this.store.commit("logout");

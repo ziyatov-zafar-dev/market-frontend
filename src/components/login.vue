@@ -63,8 +63,10 @@ export default {
               localStorage.setItem("refresh_token", data.data.refresh_token);
               localStorage.setItem("refresh_token_date", data.data.jwt_expire_refresh_token);
             } else {
-              sessionStorage.setItem("refresh_token", data.data.refresh_token);
-              sessionStorage.setItem("refresh_token_date", data.data.jwt_expire_refresh_token);
+              // sessionStorage.setItem("refresh_token", data.data.refresh_token);
+              // sessionStorage.setItem("refresh_token_date", data.data.jwt_expire_refresh_token);
+              localStorage.setItem("refresh_token", data.data.refresh_token);
+              localStorage.setItem("refresh_token_date", data.data.jwt_expire_refresh_token);
             }
             new AccountService(this.$route, this.$store).retrieveAccount()
             this.$router.push('/')

@@ -38,7 +38,17 @@
 </template>
 <script>
 export default {
-  name: `Aside`
+  name: `Aside`,
+  computed:{
+    authenticated(){
+      return this.$store.getters.authenticated
+    }
+  },
+  methods:{
+    hashAnyAuth(){
+      
+    }
+  }
 }
 </script>
 <style scoped>
